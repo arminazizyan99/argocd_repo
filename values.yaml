@@ -1,0 +1,42 @@
+replicaCount: 2
+
+image:
+  repository: arminezyan/pythonapp
+  pullPolicy: IfNotPresent
+  tag: flaskapp-v2
+  
+containerPort: 8080
+
+service:
+  name: flaskapp-service
+  type: NodePort
+  port: 80
+  protocol: TCP
+  targetPort: 8080
+  selector: flaskapp
+
+configMap:
+   name: flask-app-config
+
+deployment:
+  enabled: true
+  name: flaskapp-deployment
+  label: flaskapp
+
+
+secret:
+   name: flask-secret
+
+hpa:
+  name: flask-app-hpa
+  min: 3
+  max: 9
+  percentage: 65
+
+ingress:
+   name: flask-ingress
+   host: flaskapp.com
+   service: flaskapp-service
+   port: 80
+   
+
