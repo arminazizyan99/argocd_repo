@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/arminazizyan99/argocd_repo.git
     targetRevision: main
-    chart: /
+    chart: my-chart
   destination:
     server: https://kubernetes.default.svc
     namespace: my-flask-app
