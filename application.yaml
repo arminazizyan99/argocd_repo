@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/arminazizyan99/argocd_repo.git
-    targetRevision: main
+    targetRevision: dc19ad733ab750784c76a1c6b02488a5c814011d
     chart: argocd_repo
   destination:
     server: https://kubernetes.default.svc
